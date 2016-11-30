@@ -3,7 +3,7 @@
 
 ##原版中涉及的Native层不开源。
 ##联系作者：kellygod <kellygod95@gmail.com>
-
+##博客 http://blog.csdn.net/kellygod
 ##目前已实现功能：
 1.课程表查询
 2.考试查询
