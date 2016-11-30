@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.util;
+package cn.kellygod.schoolclient.connection;
 
 /**
  * @author kellygod on 2016/11/4.
@@ -20,13 +20,13 @@ public class CommonName {
     public static final String      EDUCATION_CHECKCODE =   EDUCATION_SYSTEM+"CheckCode.aspx";
 
     //Handler接收码
-    public static final int         STATUS_ERROR        =   0;
-    public static final int         STATUS_OK           =   1;
-    public static final int         STATUS_CHECK_CODE_OK=   2;
-    public static final int         STATUS_CHECK_CODE_NO=   3;
-    public static final int         STATUS_RESOURCE_ERROR=  4;
-    public static final int         STATUS_RESOURCE_OK  =   5;
-    public static final int         STATUS_RESOURCE_Table=  6;
+    public static final int         STATUS_COMMON_ERROR         =   0;
+    public static final int         STATUS_COMMON_OK            =   1;
+    public static final int         STATUS_CHECK_CODE_OK        =   2;
+    public static final int         STATUS_CHECK_CODE_ERROR     =   3;
+    public static final int         STATUS_GET_RESOURCE_ERROR   =   4;
+    public static final int         STATUS_GET_RESOURCE_OK      =   5;
+    public static final int         STATUS_RESOURCE_Table       =   6;
     //使用学生模式登陆
     public static final int         STUDENT_MODE        =   1;
 

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.education.ExaminationRoomBean;
+import cn.kellygod.schoolclient.education.utils.ExaminationRoomBean;
 
 /**
  * @author kellygod 2016/11/21.

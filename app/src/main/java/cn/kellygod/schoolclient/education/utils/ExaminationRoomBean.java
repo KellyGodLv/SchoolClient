@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.education;
+package cn.kellygod.schoolclient.education.utils;
 
 /**
  * @author kellygod on 2016/11/14.

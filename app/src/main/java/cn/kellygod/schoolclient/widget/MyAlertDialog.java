@@ -1,8 +1,6 @@
-package cn.kellygod.schoolclient.view;
+package cn.kellygod.schoolclient.widget;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 /**
  * Created by KellyGod-Join on 2016/11/2.

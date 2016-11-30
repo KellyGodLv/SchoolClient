@@ -16,7 +16,6 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.kellygod.schoolclient.util.CommonName;
 import cn.kellygod.schoolclient.util.CommonUtils;
 import cn.kellygod.schoolclient.util.LogUtils;
 
@@ -57,7 +56,7 @@ public class EducationDao {
                // 使用内网直接链接
              //   HttpEntity httpEntity=mHttpClientHelper.doPost("http://172.16.8.201/default2.aspx",mParam,"GBK");
                 if(httpEntity==null){
-                    msg.what= CommonName.STATUS_ERROR;
+                    msg.what= CommonName.STATUS_COMMON_ERROR;
                     handler.sendMessage(msg);
 
                     return ;
@@ -71,7 +70,7 @@ public class EducationDao {
                         e.printStackTrace();
                     }
                 msg.obj=str;
-                msg.what=CommonName.STATUS_OK;
+                msg.what=CommonName.STATUS_COMMON_OK;
                 handler.sendMessage(msg);
             }
         }).start();
@@ -93,7 +92,7 @@ public class EducationDao {
                         handler.sendMessage(msg);
                     } catch (IOException e) {
                         e.printStackTrace();
-                        msg.what=CommonName.STATUS_CHECK_CODE_NO;
+                        msg.what=CommonName.STATUS_CHECK_CODE_ERROR;
                         handler.sendMessage(msg);
                     }
                 }
@@ -107,13 +106,13 @@ public class EducationDao {
             public void run() {
                 Message msg =new Message();
                 if(CommonUtils.isNull(url)){
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
                 HttpEntity httpEntity=mHttpClientHelper.doGet(url);
                 if(httpEntity==null){
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -136,7 +135,7 @@ public class EducationDao {
                     Log.i("resinfo",str);
 
                 String content=str;
-                msg.what=CommonName.STATUS_RESOURCE_OK;
+                msg.what=CommonName.STATUS_GET_RESOURCE_OK;
                 msg.obj=content;
                 handler.sendMessage(msg);
 
@@ -150,13 +149,13 @@ public class EducationDao {
             public void run() {
                 Message msg =new Message();
                 if(CommonUtils.isNull(url)){
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
                 HttpEntity httpEntity=mHttpClientHelper.doGet(url,param);
                 if(httpEntity==null){
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -193,7 +192,7 @@ public class EducationDao {
                 param.put("Button2",Value);
 
                 if(CommonUtils.isNull(url)){
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -201,7 +200,7 @@ public class EducationDao {
                 String __VIEWSTATE="";
                 if(httpEntity==null) {
                     LogUtils.e(TAG, "httpEntity is null");
-                    msg.what = CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what = CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -211,7 +210,7 @@ public class EducationDao {
                   //  System.out.print(content);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -219,7 +218,7 @@ public class EducationDao {
                 httpEntity=mHttpClientHelper.doPost(url,param,url,"GBK");
                 if(httpEntity==null) {
                     LogUtils.e(TAG, "httpEntity is null");
-                    msg.what = CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what = CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -231,7 +230,7 @@ public class EducationDao {
                     handler.sendMessage(msg);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    msg.what=CommonName.STATUS_RESOURCE_ERROR;
+                    msg.what=CommonName.STATUS_GET_RESOURCE_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }

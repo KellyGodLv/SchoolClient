@@ -12,8 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.education.ScoreBean;
-import cn.kellygod.schoolclient.util.CommonUtils;
+import cn.kellygod.schoolclient.education.utils.ScoreBean;
 
 /**
  * @author kellygod 2016/11/25.

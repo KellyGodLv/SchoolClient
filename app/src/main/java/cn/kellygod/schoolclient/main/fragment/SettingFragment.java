@@ -1,9 +1,8 @@
-package cn.kellygod.schoolclient.fragment;
+package cn.kellygod.schoolclient.main.fragment;
 
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,8 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.activity.FeedBackActivity;
-import cn.kellygod.schoolclient.activity.MainActivity;
+import cn.kellygod.schoolclient.main.activity.FeedBackActivity;
 import cn.kellygod.schoolclient.util.CommonUtils;
 import cn.kellygod.schoolclient.util.ToastUtil;
 

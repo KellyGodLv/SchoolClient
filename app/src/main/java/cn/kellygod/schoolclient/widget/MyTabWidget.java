@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.view;
+package cn.kellygod.schoolclient.widget;
 
 import java.util.ArrayList;
 import java.util.List;

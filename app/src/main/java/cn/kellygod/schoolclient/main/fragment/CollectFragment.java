@@ -1,14 +1,12 @@
-package cn.kellygod.schoolclient.fragment;
+package cn.kellygod.schoolclient.main.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -17,10 +15,10 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.activity.CourseScoreActivity;
-import cn.kellygod.schoolclient.activity.ExamAddrActivity;
-import cn.kellygod.schoolclient.activity.TimeTableActivity;
-import cn.kellygod.schoolclient.util.CommonName;
+import cn.kellygod.schoolclient.education.activity.CourseScoreActivity;
+import cn.kellygod.schoolclient.education.activity.ExamAddrActivity;
+import cn.kellygod.schoolclient.education.activity.TimeTableActivity;
+import cn.kellygod.schoolclient.connection.CommonName;
 import cn.kellygod.schoolclient.util.ToastUtil;
 
 /**
@@ -47,10 +45,10 @@ public class CollectFragment extends BaseFragment implements View.OnClickListene
 		public void handleMessage(Message msg) {
 			CollectFragment collectFragment=mActivity.get();
 			switch (msg.what){
-				case CommonName.STATUS_RESOURCE_ERROR:
+				case CommonName.STATUS_GET_RESOURCE_ERROR:
 					ToastUtil.show(collectFragment.getContext(),"获取资源出错，请检测网络");
 					break;
-				case CommonName.STATUS_RESOURCE_OK:
+				case CommonName.STATUS_GET_RESOURCE_OK:
 
 			}
 

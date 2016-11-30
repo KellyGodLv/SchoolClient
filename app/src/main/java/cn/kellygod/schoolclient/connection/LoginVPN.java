@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.kellygod.schoolclient.util.CommonName;
-import cn.kellygod.schoolclient.util.LogUtils;
-
 /**
  * @author kellygod on 2016/11/4.
  */
@@ -35,7 +32,7 @@ public class LoginVPN {
                 mParam.put("svpn_password",password);
                 HttpEntity httpEntity = mHttpClientHelper.doGet(CommonName.SSL_VPN_URL);
                 if(httpEntity==null){
-                    msg.what=CommonName.STATUS_ERROR;
+                    msg.what=CommonName.STATUS_COMMON_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -47,7 +44,7 @@ public class LoginVPN {
                 httpEntity=null;
                 httpEntity=mHttpClientHelper.doPost(CommonName.SSL_VPN_LOGIN,mParam,"utf-8");
                 if(httpEntity==null) {
-                    msg.what = CommonName.STATUS_ERROR;
+                    msg.what = CommonName.STATUS_COMMON_ERROR;
                     handler.sendMessage(msg);
                     return;
                 }
@@ -56,7 +53,7 @@ public class LoginVPN {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                msg.what=CommonName.STATUS_OK;
+                msg.what=CommonName.STATUS_COMMON_OK;
                 handler.sendMessage(msg);
 
             }

@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.activity;
+package cn.kellygod.schoolclient.main.activity;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;

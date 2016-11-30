@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.education;
+package cn.kellygod.schoolclient.education.utils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

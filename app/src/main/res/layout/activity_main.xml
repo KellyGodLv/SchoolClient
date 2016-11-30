@@ -12,7 +12,7 @@
         android:layout_weight="1.0" >
     </FrameLayout>
 
-    <cn.kellygod.schoolclient.view.MyTabWidget
+    <cn.kellygod.schoolclient.widget.MyTabWidget
         android:id="@+id/tab_widget"
         android:layout_width="fill_parent"
         android:layout_weight="0.03"

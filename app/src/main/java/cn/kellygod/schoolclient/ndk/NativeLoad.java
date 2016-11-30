@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.ndkentry;
+package cn.kellygod.schoolclient.ndk;
 
 import android.os.Handler;
 

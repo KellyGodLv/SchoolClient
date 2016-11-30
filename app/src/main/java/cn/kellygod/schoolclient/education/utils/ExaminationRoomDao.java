@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.education;
+package cn.kellygod.schoolclient.education.utils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author kellygod 2016/11/14.

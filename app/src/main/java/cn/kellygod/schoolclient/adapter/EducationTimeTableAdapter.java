@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.education.TimeTableBean;
+import cn.kellygod.schoolclient.education.utils.TimeTableBean;
 
 /**
  * @author  on 2016/11/9.

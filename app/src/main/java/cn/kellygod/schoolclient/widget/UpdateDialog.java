@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.view;
+package cn.kellygod.schoolclient.widget;
 
 
 import android.content.Context;

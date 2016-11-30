@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.activity;
+package cn.kellygod.schoolclient.education.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,11 +15,12 @@ import java.util.ArrayList;
 import cn.kellygod.schoolclient.R;
 import cn.kellygod.schoolclient.adapter.EducationScoreAdapter;
 import cn.kellygod.schoolclient.connection.EducationDao;
-import cn.kellygod.schoolclient.education.EducationCode;
-import cn.kellygod.schoolclient.education.ScoreBean;
-import cn.kellygod.schoolclient.education.ScoreDao;
-import cn.kellygod.schoolclient.education.StudentInfo;
-import cn.kellygod.schoolclient.util.CommonName;
+import cn.kellygod.schoolclient.education.utils.EducationCode;
+import cn.kellygod.schoolclient.education.utils.ScoreBean;
+import cn.kellygod.schoolclient.education.utils.ScoreDao;
+import cn.kellygod.schoolclient.education.utils.StudentInfo;
+import cn.kellygod.schoolclient.connection.CommonName;
+import cn.kellygod.schoolclient.main.activity.BaseActivity;
 import cn.kellygod.schoolclient.util.ToastUtil;
 
 /**
@@ -48,7 +49,7 @@ public class CourseScoreActivity extends BaseActivity implements View.OnClickLis
                     courseScoreActivity.adapter.notifyDataSetChanged();
                     ToastUtil.show(courseScoreActivity.getApplicationContext(), "期末成绩已更新");
                     break;
-                case CommonName.STATUS_RESOURCE_ERROR:
+                case CommonName.STATUS_GET_RESOURCE_ERROR:
                     ToastUtil.show(courseScoreActivity.getApplicationContext(), "网络请求异常");
                     break;
                 default:

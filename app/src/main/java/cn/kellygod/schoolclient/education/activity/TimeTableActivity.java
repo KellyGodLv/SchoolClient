@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.activity;
+package cn.kellygod.schoolclient.education.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,18 +16,19 @@ import java.util.Map;
 import cn.kellygod.schoolclient.R;
 import cn.kellygod.schoolclient.adapter.EducationTimeTableAdapter;
 import cn.kellygod.schoolclient.connection.EducationDao;
-import cn.kellygod.schoolclient.education.EducationCode;
-import cn.kellygod.schoolclient.education.StudentInfo;
-import cn.kellygod.schoolclient.education.TimeTableBean;
-import cn.kellygod.schoolclient.education.TimeTableDao;
-import cn.kellygod.schoolclient.util.CommonName;
+import cn.kellygod.schoolclient.education.utils.EducationCode;
+import cn.kellygod.schoolclient.education.utils.StudentInfo;
+import cn.kellygod.schoolclient.education.utils.TimeTableBean;
+import cn.kellygod.schoolclient.education.utils.TimeTableDao;
+import cn.kellygod.schoolclient.connection.CommonName;
+import cn.kellygod.schoolclient.main.activity.BaseActivity;
 import cn.kellygod.schoolclient.util.ToastUtil;
 
 /**
  * @author kellygod on 2016/11/10.
  */
 
-public class TimeTableActivity extends  BaseActivity implements View.OnClickListener {
+public class TimeTableActivity extends BaseActivity implements View.OnClickListener {
     private static class StudentTimeTableHandler extends Handler{
         WeakReference<TimeTableActivity> mActivity;
         private String TAG="StudentTimeTableHandler";
@@ -49,7 +50,7 @@ public class TimeTableActivity extends  BaseActivity implements View.OnClickList
                     timeTableActivity.adapter.notifyDataSetChanged();
                     ToastUtil.show(timeTableActivity.getApplicationContext(),"课程已经更新");
                     break;
-                case CommonName.STATUS_RESOURCE_ERROR:
+                case CommonName.STATUS_GET_RESOURCE_ERROR:
                     ToastUtil.show(timeTableActivity.getApplicationContext(),"获取信息失败");
                     break;
                 default:

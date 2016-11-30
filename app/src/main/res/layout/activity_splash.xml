@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_bg"
     
-    tools:context="cn.kellygod.schoolclient.activity.SplashActivity" >
+    tools:context="cn.kellygod.schoolclient.main.activity.SplashActivity" >
 
     <ImageView
         android:id="@+id/imageView1"

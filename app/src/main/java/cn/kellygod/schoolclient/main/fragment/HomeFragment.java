@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.fragment;
+package cn.kellygod.schoolclient.main.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,12 +30,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import cn.kellygod.schoolclient.R;
-import cn.kellygod.schoolclient.connection.SyncCookie;
-import cn.kellygod.schoolclient.util.AppManager;
-import cn.kellygod.schoolclient.util.CommonName;
-import cn.kellygod.schoolclient.util.CommonUtils;
+import cn.kellygod.schoolclient.connection.CommonName;
 import cn.kellygod.schoolclient.util.LogUtils;
-import cn.kellygod.schoolclient.util.ToastUtil;
 
 public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyListener {
 

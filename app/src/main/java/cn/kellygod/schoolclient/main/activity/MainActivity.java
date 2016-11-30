@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.activity;
+package cn.kellygod.schoolclient.main.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -27,22 +27,22 @@ import java.lang.ref.WeakReference;
 import cn.kellygod.schoolclient.R;
 import cn.kellygod.schoolclient.connection.EducationDao;
 import cn.kellygod.schoolclient.connection.UpdateAppDao;
-import cn.kellygod.schoolclient.education.StudentInfo;
-import cn.kellygod.schoolclient.fragment.CollectFragment;
-import cn.kellygod.schoolclient.fragment.HomeFragment;
-import cn.kellygod.schoolclient.fragment.SettingFragment;
+import cn.kellygod.schoolclient.education.utils.StudentInfo;
+import cn.kellygod.schoolclient.main.fragment.CollectFragment;
+import cn.kellygod.schoolclient.main.fragment.HomeFragment;
+import cn.kellygod.schoolclient.main.fragment.SettingFragment;
 import cn.kellygod.schoolclient.service.HeartBeatPacketFactory;
 import cn.kellygod.schoolclient.service.HeartBeatService;
 import cn.kellygod.schoolclient.util.AppManager;
-import cn.kellygod.schoolclient.util.CommonName;
+import cn.kellygod.schoolclient.connection.CommonName;
 import cn.kellygod.schoolclient.util.CommonUtils;
 import cn.kellygod.schoolclient.util.ConstantValues;
 import cn.kellygod.schoolclient.util.LogUtils;
 import cn.kellygod.schoolclient.util.SavePassword;
 import cn.kellygod.schoolclient.util.ToastUtil;
-import cn.kellygod.schoolclient.view.MyTabWidget;
-import cn.kellygod.schoolclient.view.MyTabWidget.OnTabSelectedListener;
-import cn.kellygod.schoolclient.view.UpdateDialog;
+import cn.kellygod.schoolclient.widget.MyTabWidget;
+import cn.kellygod.schoolclient.widget.MyTabWidget.OnTabSelectedListener;
+import cn.kellygod.schoolclient.widget.UpdateDialog;
 
 /**
  * 主界面
@@ -95,14 +95,14 @@ public class MainActivity extends FragmentActivity implements
 							.skipMemoryCache(true)
 							.into(mainActivity.ivCheckCode);
 					break;
-				case CommonName.STATUS_CHECK_CODE_NO:
+				case CommonName.STATUS_CHECK_CODE_ERROR:
 					ToastUtil.show(mainActivity,"获取验证码失败");
 					break;
-				case CommonName.STATUS_ERROR:
+				case CommonName.STATUS_COMMON_ERROR:
 					ToastUtil.show(mainActivity,"填写的信息有误");
 					break;
 				//信息发送成功
-				case CommonName.STATUS_OK:
+				case CommonName.STATUS_COMMON_OK:
 					//获取返回的字符串
 					String html=(String)msg.obj;
 					//System.out.print("得到的"+html);
@@ -161,7 +161,7 @@ public class MainActivity extends FragmentActivity implements
 						mainActivity.etCheckCode.setText("");
 					}
 					break;
-				case CommonName.STATUS_RESOURCE_ERROR:
+				case CommonName.STATUS_GET_RESOURCE_ERROR:
 					ToastUtil.show(mainActivity,"服务器访问异常");
 					break;
 				case CommonName.STATUS_RESOURCE_Table:

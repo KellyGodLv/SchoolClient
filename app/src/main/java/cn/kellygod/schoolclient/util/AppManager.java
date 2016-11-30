@@ -5,7 +5,7 @@ import java.util.Stack;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import cn.kellygod.schoolclient.activity.BaseActivity;
+import cn.kellygod.schoolclient.main.activity.BaseActivity;
 /**
  *
  *  @author kellygod

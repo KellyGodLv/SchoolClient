@@ -1,4 +1,4 @@
-package cn.kellygod.schoolclient.fragment;
+package cn.kellygod.schoolclient.main.fragment;
 
 
 
