@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical" >
+    
+    <!-- title bar -->
+    <include 
+        layout="@layout/title_bar"/>
+    
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="0dip"
+       android:layout_weight="1.0"
+       android:paddingBottom="20dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- 查询课表-->
+        <RelativeLayout
+            android:id="@+id/education_table_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/setting_bg">
+
+            <TextView
+                style="@style/education_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:text="课表查询"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dip"
+                android:src="@drawable/setting_arrow"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/education_score_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_bg">
+
+            <TextView
+                style="@style/education_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:text="成绩查询"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dip"
+                android:src="@drawable/setting_arrow"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/education_examination_room_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dip"
+            android:background="@drawable/setting_bg">
+
+            <TextView
+                style="@style/education_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:text="考场查询"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dip"
+                android:src="@drawable/setting_arrow"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/education_community_score_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:background="@drawable/setting_bg">
+
+            <TextView
+                style="@style/education_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:text="社区分查询"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dip"
+                android:src="@drawable/setting_arrow"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            android:background="@drawable/setting_bg">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/et_education_library_query"
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:hint="校内图书馆藏搜索" />
+            <Button
+                android:id="@+id/education_library_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:textColor="#eaeaea"
+                android:text="查找"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/button" />
+        </LinearLayout>
+    </LinearLayout>
+   </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- title bar -->
+    <include
+        layout="@layout/title_bar"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:background="#ff33b5e5">
+
+        <TextView
+            android:id="@+id/tv_title_course_name"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="18dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="课程名称"
+            app:layout_widthPercent="40%"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_course_exam_time"
+            android:layout_toRightOf ="@id/tv_title_course_name"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="18dp"
+            android:singleLine="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="时间"
+            app:layout_widthPercent="30%"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_course_exam_addr"
+            android:layout_toRightOf ="@id/tv_title_course_exam_time"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="18dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="地点"
+            app:layout_widthPercent="20%"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_course_exam_seat_num"
+            android:layout_toRightOf ="@id/tv_title_course_exam_addr"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="座号"
+            app:layout_widthPercent="10%"
+            />
+    </android.support.percent.PercentRelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/education_exam_addr_swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/education_exam_addr_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:footerDividersEnabled="false" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

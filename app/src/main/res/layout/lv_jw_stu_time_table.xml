@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_time1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="8:10\n1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/stu_lv_time_table_text" />
+
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"/>
+            
+            <TextView
+                android:id="@+id/tv_time2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="9:00\n2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/stu_lv_time_table_text" />
+        </LinearLayout>
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+
+        <include layout="@layout/include_base_height_divider" />
+
+        <TextView
+            android:id="@+id/tv_week7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stu_lv_time_table_text" />
+    </LinearLayout>
+
+   
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.0"
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "cn.kellygod.schoolclient"
+        minSdkVersion 21
+        targetSdkVersion 23
+        ndk{
+            moduleName "secretkey"
+            ldLibs "log","z","m"
+            abiFilters "armeabi", "armeabi-v7a","x86"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+
+        }
+    }
+//    xternalNativeBuild {
+//        ndkBuild {
+//            path file("src\\main\\jni\\Android.mk")
+//        }
+//    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
+repositories {
+    mavenCentral() // jcenter() works as well because it pulls from Maven Central
+}
+
+dependencies {
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:percent:23.2.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.okio:okio:1.5.0'
+    compile 'commons-httpclient:commons-httpclient:3.1'
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+}
