@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
     <!-- title bar -->
-    <include 
+    <include
+        android:id="@+id/title_bar"
         layout="@layout/title_bar"/>
     
-<LinearLayout 
+<LinearLayout
+    android:id="@+id/ln_brower_search"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_below="@id/title_bar"
     android:orientation="horizontal">
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -39,8 +42,16 @@
         android:paddingRight="10dp"
         android:background="@drawable/button" />
 </LinearLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/pb_brower"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_below="@+id/ln_brower_search" />
 <WebView 
     android:id="@+id/wv_print"
+    android:layout_below="@id/pb_brower"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-</LinearLayout>
+</RelativeLayout>

@@ -26,6 +26,7 @@ import java.lang.ref.WeakReference;
 
 import cn.kellygod.schoolclient.R;
 import cn.kellygod.schoolclient.connection.EducationDao;
+import cn.kellygod.schoolclient.connection.IEducaationLogin;
 import cn.kellygod.schoolclient.connection.UpdateAppDao;
 import cn.kellygod.schoolclient.education.utils.StudentInfo;
 import cn.kellygod.schoolclient.main.fragment.CollectFragment;
@@ -51,7 +52,7 @@ import cn.kellygod.schoolclient.widget.UpdateDialog;
  * 
  */
 public class MainActivity extends FragmentActivity implements
-		OnTabSelectedListener{
+		OnTabSelectedListener,IEducaationLogin{
 
 	private static final String TAG = "MainActivity";
 	private long firstTime=0;
@@ -62,14 +63,38 @@ public class MainActivity extends FragmentActivity implements
 	private SettingFragment mSettingFragment;
 	private int mIndex = ConstantValues.COLLECT_FRAGMENT_INDEX;
 	private FragmentManager mFragmentManager;
-	private boolean isSaveMessage=false;
 	private ImageView ivCheckCode=null;
 	private EditText etPassWord=null;
 	private EditText etUsernNme=null;
 	private EditText etCheckCode=null;
 	private CheckBox cbRememberPassword=null;
-	private InputStream isContent=null;
 	private String studentNumber="";
+
+	@Override
+	public void showEducationDialog(String message) {
+		if("login".equals(message))
+			dialog.show();
+			dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(etUsernNme.getText().toString().equals("") || etPassWord.getText().toString().equals("")) {
+						//这里暂时不做任何处理
+						ToastUtil.show(MainActivity.this, "信息不能为空");
+						//用于关闭AlertDialog
+						//dialog.dismiss();
+						return ;
+					}
+					//登陸接口
+					EducationDao.login(
+							etUsernNme.getText().toString(),
+							etPassWord.getText().toString(),
+							etCheckCode.getText().toString(),
+							MyHandler);
+					//dialog.dismiss();
+				}
+			});
+	}
+
 	/**
 	 *  EducationHandler用于处理其他线程发来的消息所有的UI更新必须在主线程中更新
 	 *
@@ -143,7 +168,9 @@ public class MainActivity extends FragmentActivity implements
 						StudentInfo
 								.getInstance()
 								.setStudentCode(mainActivity.studentNumber);
-
+						StudentInfo
+								.getInstance()
+								.setLogin(true);
 						HeartBeatPacketFactory
 								.getHeartBeatPacketFactoryInstance()
 								.addHeartBeatTask("education",
@@ -242,6 +269,7 @@ public class MainActivity extends FragmentActivity implements
 		case ConstantValues.COLLECT_FRAGMENT_INDEX:
 			if (null == mCollectFragment) {
 				mCollectFragment = new CollectFragment();
+				mCollectFragment.sethandleMessageListenner(this);
 				transaction.add(R.id.center_layout, mCollectFragment);
 			} else {
 				transaction.show(mCollectFragment);
@@ -289,7 +317,7 @@ public class MainActivity extends FragmentActivity implements
 	//为了防止非本校学生使用客户端，采用教务系统账号密码进行验证
 	protected void callLoginDialog(){
 		//创建AlertDialog
-		final android.support.v7.app.AlertDialog.Builder mBuilder=new android.support.v7.app.AlertDialog.Builder(this);;
+		final android.support.v7.app.AlertDialog.Builder mBuilder=new android.support.v7.app.AlertDialog.Builder(this);
 		mBuilder.setTitle("登陆教务系统");
 		//装在布局文件
 		final View loginView=getLayoutInflater().inflate(R.layout.alert_login,null);
@@ -334,36 +362,11 @@ public class MainActivity extends FragmentActivity implements
 		//
 		mBuilder.setPositiveButton(R.string.login_ok, null);
 		//取消操作则结束APP
-		mBuilder.setNegativeButton(R.string.login_cancel, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				//退出
-				AppManager.getAppManager().finishAllActivity();
-			}
-		});
+		mBuilder.setNegativeButton(R.string.login_cancel, null);
 		//AlertDialog窗口以外事件不触发
 		mBuilder.setCancelable(false);
 		dialog=mBuilder.create();
-		dialog.show();
-		dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if(etUsernNme.getText().toString().equals("") || etPassWord.getText().toString().equals("")) {
-					//这里暂时不做任何处理
-					ToastUtil.show(MainActivity.this, "信息不能为空");
-					//用于关闭AlertDialog
-					//dialog.dismiss();
-					return ;
-				}
-				//登陸接口
-				EducationDao.login(
-						etUsernNme.getText().toString(),
-						etPassWord.getText().toString(),
-						etCheckCode.getText().toString(),
-						MyHandler);
-				//dialog.dismiss();
-			}
-		});
+
 	}
 
 	@Override

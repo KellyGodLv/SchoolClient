@@ -71,8 +71,8 @@ public class SplashActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		//使用native登陆VPN网络
-		NativeLoad.Login(mHandler);
-		//java层登陆接口
+		NativeLoad.LoginVPN(mHandler);
+		//使用java层登陆VPN网络 账号，密码
 		//LoginVPN.login("","",mHandler);
 		TextView tv_app_version = (TextView) findViewById(R.id.tv_app_version);
 		tv_app_version.setText("版本：" + CommonUtils.softVersion(getApplicationContext()) + " 正式版");

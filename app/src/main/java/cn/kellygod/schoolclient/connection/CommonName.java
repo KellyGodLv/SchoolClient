@@ -27,6 +27,7 @@ public class CommonName {
     public static final int         STATUS_GET_RESOURCE_ERROR   =   4;
     public static final int         STATUS_GET_RESOURCE_OK      =   5;
     public static final int         STATUS_RESOURCE_Table       =   6;
+    public static final int         SHOW_LOGIN_DIALOG           =   7;
     //使用学生模式登陆
     public static final int         STUDENT_MODE        =   1;
 

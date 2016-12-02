@@ -24,6 +24,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.UnsupportedEncodingException;
@@ -43,6 +44,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyL
 	private EditText et_url;
 	private WebView webView;
 	private Button bt_visit;
+	private ProgressBar mProgressBar;
 	private String _cookie="";
 
 	public static HomeFragment newInstance() {
@@ -91,6 +93,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyL
 		et_url = (EditText) view.findViewById(R.id.et_brower_search);
 		webView = (WebView) view.findViewById(R.id.wv_print);
 		bt_visit = (Button) view.findViewById(R.id.bt_brower_search);
+		mProgressBar=(ProgressBar)view.findViewById(R.id.pb_brower);
 		
 	}
 	
@@ -149,8 +152,19 @@ public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyL
 		 });
 
 		 webView.setWebChromeClient(new WebChromeClient() {
-
-
+			 //进度条控制
+			 @Override
+			 public void onProgressChanged(WebView view, int newProgress) {
+				 if(newProgress==100){
+					 mProgressBar.setVisibility(View.INVISIBLE);
+				 }else{
+					 if(View.INVISIBLE==mProgressBar.getVisibility()){
+						 mProgressBar.setVisibility(View.VISIBLE);
+					 }
+					 mProgressBar.setProgress(newProgress);
+				 }
+				 super.onProgressChanged(view, newProgress);
+			 }
 		 });
 		 //启用下载
 		 webView.setDownloadListener(new DownloadListener() {

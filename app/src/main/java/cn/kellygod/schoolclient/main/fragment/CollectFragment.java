@@ -15,10 +15,12 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 
 import cn.kellygod.schoolclient.R;
+import cn.kellygod.schoolclient.connection.IEducaationLogin;
 import cn.kellygod.schoolclient.education.activity.CourseScoreActivity;
 import cn.kellygod.schoolclient.education.activity.ExamAddrActivity;
 import cn.kellygod.schoolclient.education.activity.TimeTableActivity;
 import cn.kellygod.schoolclient.connection.CommonName;
+import cn.kellygod.schoolclient.education.utils.StudentInfo;
 import cn.kellygod.schoolclient.util.ToastUtil;
 
 /**
@@ -28,6 +30,10 @@ import cn.kellygod.schoolclient.util.ToastUtil;
  * */
 public class CollectFragment extends BaseFragment implements View.OnClickListener {
 	private long firstTime=0;
+	private IEducaationLogin mIEducaationLogin;
+	public void sethandleMessageListenner(IEducaationLogin I){
+		mIEducaationLogin=I;
+	}
 
 	/**
 	 *
@@ -143,22 +149,26 @@ public class CollectFragment extends BaseFragment implements View.OnClickListene
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()){
-			//查询课表
-			case R.id.education_table_query:
-				startActivity( new Intent(mActivity, TimeTableActivity.class));
-				break;
-			//查询成绩
-			case R.id.education_score_query:
-				startActivity(new Intent(mActivity, CourseScoreActivity.class));
-				break;
-			case R.id.education_examination_room_query:
-				startActivity( new Intent(mActivity, ExamAddrActivity.class));
-				break;
-			case R.id.education_library_query:
-				break;
-			default:
-				break;
+		if(StudentInfo.getInstance().isLogin()) {
+			switch (v.getId()) {
+				//查询课表
+				case R.id.education_table_query:
+					startActivity(new Intent(mActivity, TimeTableActivity.class));
+					break;
+				//查询成绩
+				case R.id.education_score_query:
+					startActivity(new Intent(mActivity, CourseScoreActivity.class));
+					break;
+				case R.id.education_examination_room_query:
+					startActivity(new Intent(mActivity, ExamAddrActivity.class));
+					break;
+				case R.id.education_library_query:
+					break;
+				default:
+					break;
+			}
+		}else{
+			mIEducaationLogin.showEducationDialog("login");
 		}
 	}
 }

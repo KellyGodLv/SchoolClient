@@ -7,7 +7,15 @@ public class StudentInfo {
     // 使用饿汉模式创建此单例   多线程安全
     private static StudentInfo studentInfo=new StudentInfo();
     private String studentName="";
+    private String studentCode="";
+    private boolean isLogin=false;
 
+    public boolean isLogin() {
+        return isLogin;
+    }
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
     public String getStudentName() {
         return studentName;
     }
@@ -24,7 +32,7 @@ public class StudentInfo {
         this.studentCode = studentCode;
     }
 
-    private String studentCode="";
+
     private StudentInfo(){ }
 
     public static StudentInfo getInstance(){

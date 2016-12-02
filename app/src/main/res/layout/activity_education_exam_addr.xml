@@ -49,7 +49,6 @@
             />
 
         <TextView
-            android:id="@+id/tv_title_course_exam_seat_num"
             android:layout_toRightOf ="@id/tv_title_course_exam_addr"
             android:gravity="center_vertical|center_horizontal"
             android:textSize="16dp"
