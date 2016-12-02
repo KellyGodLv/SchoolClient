@@ -73,6 +73,8 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void showEducationDialog(String message) {
 		if("login".equals(message))
+			//获取教务系统验证码
+			EducationDao.refleshCheckCode(getApplicationContext(), MyHandler);
 			dialog.show();
 			dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -130,7 +132,6 @@ public class MainActivity extends FragmentActivity implements
 				case CommonName.STATUS_COMMON_OK:
 					//获取返回的字符串
 					String html=(String)msg.obj;
-					//System.out.print("得到的"+html);
 					String xhxm=Jsoup.parse(html)
 							.getElementById("xhxm")
 							.text();
@@ -192,7 +193,7 @@ public class MainActivity extends FragmentActivity implements
 					ToastUtil.show(mainActivity,"服务器访问异常");
 					break;
 				case CommonName.STATUS_RESOURCE_Table:
-					String content=(String)msg.obj;
+					//String content=(String)msg.obj;
 					//AnalyticTable.getAnalyticTable(content);
 					//LogUtils.d(TAG,content);
 
@@ -246,7 +247,7 @@ public class MainActivity extends FragmentActivity implements
 	protected void onDestroy() {
 		//停止服务
 		stopService(new Intent(this,HeartBeatService.class));
-		AppManager.getAppManager().finishAllActivity();
+		AppManager.getAppManager().AppExit(this);
 		super.onDestroy();
 	}
 
@@ -357,8 +358,6 @@ public class MainActivity extends FragmentActivity implements
 			}
 		});
 		mBuilder.setView(loginView);
-		//获取教务系统验证码
-		EducationDao.refleshCheckCode(getApplicationContext(), MyHandler);
 		//
 		mBuilder.setPositiveButton(R.string.login_ok, null);
 		//取消操作则结束APP
@@ -375,11 +374,11 @@ public class MainActivity extends FragmentActivity implements
 		{
 			case KeyEvent.KEYCODE_BACK:
 				long secondTime = System.currentTimeMillis();
-				if (secondTime - firstTime > 2000) {                                         //如果两次按键时间间隔大于2秒，则不退出
+				if (secondTime - firstTime > 2000) {
 					ToastUtil.show(this, "再按一次退出程序");
 					firstTime = secondTime;//更新firstTime
 					return true;
-				} else {                                                    //两次按键小于2秒时，退出应用
+				} else {
 					AppManager.getAppManager().AppExit(this);
 				}
 				break;

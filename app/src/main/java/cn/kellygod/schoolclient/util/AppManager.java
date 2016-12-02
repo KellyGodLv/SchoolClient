@@ -118,21 +118,16 @@ public class AppManager {
             }
             activityStack.clear();
         }
-        System.exit(0);
     }
 
     /**
      *   退出程序
      */
     public void AppExit(Context context) {
-        try {
-            finishAllActivity();
-            ActivityManager activityMgr = (ActivityManager) context
-                    .getSystemService(Context.ACTIVITY_SERVICE);
-            activityMgr.killBackgroundProcesses(context.getPackageName());
-            System.exit(0);
-        } catch (Exception e) {
-            System.exit(0);
-        }
+        finishAllActivity();
+        ActivityManager activityMgr = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        activityMgr.killBackgroundProcesses(context.getPackageName());
+        System.exit(0);
     }
 }
