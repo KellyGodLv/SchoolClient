@@ -26,6 +26,7 @@ import java.lang.ref.WeakReference;
 import cn.kellygod.schoolclient.R;
 import cn.kellygod.schoolclient.connection.EducationDao;
 import cn.kellygod.schoolclient.connection.IEducaationLogin;
+import cn.kellygod.schoolclient.connection.UpdateAppBean;
 import cn.kellygod.schoolclient.connection.UpdateAppDao;
 import cn.kellygod.schoolclient.education.utils.StudentInfo;
 import cn.kellygod.schoolclient.main.fragment.CollectFragment;
@@ -206,8 +207,8 @@ public class MainActivity extends FragmentActivity implements
 					ToastUtil.show(mainActivity,"当前版本已最新");
 					break;
 				case UpdateAppDao.UPDATE_APP_CHECKED:
-					//ToastUtil.show(mainActivity,"检测到新版本");
-					UpdateDialog.ShowDialog(mainActivity,(String)msg.obj);
+					UpdateAppBean info=(UpdateAppBean)msg.obj;
+					UpdateDialog.ShowDialog(mainActivity,info);
 				default:
 					break;
 			}

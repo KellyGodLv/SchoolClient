@@ -50,7 +50,7 @@ public class UpdateAppDao {
                 String version = CommonUtils.softVersion(context);
                 if(!version.equals(info.getVersion())){
                     msg.what=UPDATE_APP_CHECKED;
-                    msg.obj=info.getUrl();
+                    msg.obj=info;
                     handler.sendMessage(msg);
                     return ;
                 }
@@ -67,10 +67,11 @@ public class UpdateAppDao {
             info =new UpdateAppBean();
             Element version = document.getElementById("version");
             Element url = document.getElementById("url");
-            LogUtils.d("UpdateAppDao", version.text()+"---"+url.text());
-            String message= new String(url.text().getBytes(),"utf-8");
+            Element message=document.getElementById("message");
+            LogUtils.d("UpdateAppDao", version.text()+"---"+message.text()+"---"+url.text());
             info.setVersion(version.text());
-            info.setUrl(message.replace("\\n","\n"));
+            info.setMessage(message.text().replace("\\n","\n"));
+            info.setUrl(url.text());
         } catch (IOException e) {
             e.printStackTrace();
             return null;

@@ -5,6 +5,7 @@ package cn.kellygod.schoolclient.connection;
  */
 public class UpdateAppBean {
     private String version="";
+    private String message="";
     private String url="";
 
     public String getVersion() {
@@ -22,4 +23,12 @@ public class UpdateAppBean {
     public void setUrl(String url) {
         this.url = url;
     }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
 }
