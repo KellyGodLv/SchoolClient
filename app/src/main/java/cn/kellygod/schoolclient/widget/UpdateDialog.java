@@ -13,7 +13,6 @@ public class UpdateDialog {
         mBuilder.setTitle("服务器消息");
         mBuilder.setCancelable(false);
         mBuilder.setMessage(info);
-        mBuilder.setNegativeButton("以后再说", null);
         mBuilder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -185,8 +185,6 @@ public class MainActivity extends FragmentActivity implements
 						mainActivity.startService(new Intent(mainActivity, HeartBeatService.class));
 						if(mainActivity.dialog!=null)
 							mainActivity.dialog.dismiss();
-						//检测版本更新
-						UpdateAppDao.UpdateAppDao(mainActivity,this);
 					}else{
 						ToastUtil.show(mainActivity,"填写的信息有误,请重新输入！");
 						EducationDao.refleshCheckCode(mainActivity.getApplicationContext(), mainActivity.MyHandler);
@@ -228,6 +226,8 @@ public class MainActivity extends FragmentActivity implements
 		init();
 		initEvents();
 		callLoginDialog();
+		//检测版本更新
+		UpdateAppDao.UpdateAppDao(this,MyHandler);
 	}
 
 	private void init() {

@@ -9,6 +9,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import org.apache.commons.codec.Encoder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -67,8 +68,9 @@ public class UpdateAppDao {
             Element version = document.getElementById("version");
             Element url = document.getElementById("url");
             LogUtils.d("UpdateAppDao", version.text()+"---"+url.text());
+            String message= new String(url.text().getBytes(),"utf-8");
             info.setVersion(version.text());
-            info.setUrl(url.text());
+            info.setUrl(message.replace("\\n","\n"));
         } catch (IOException e) {
             e.printStackTrace();
             return null;
