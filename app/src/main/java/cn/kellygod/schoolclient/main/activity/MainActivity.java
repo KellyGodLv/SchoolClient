@@ -21,7 +21,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.jsoup.Jsoup;
 
-import java.io.InputStream;
 import java.lang.ref.WeakReference;
 
 import cn.kellygod.schoolclient.R;
@@ -132,9 +131,14 @@ public class MainActivity extends FragmentActivity implements
 				case CommonName.STATUS_COMMON_OK:
 					//获取返回的字符串
 					String html=(String)msg.obj;
-					String xhxm=Jsoup.parse(html)
-							.getElementById("xhxm")
-							.text();
+					String xhxm="";
+					try {
+						xhxm = Jsoup.parse(html)
+								.getElementById("xhxm")
+								.text();
+					}catch (NullPointerException e){
+						xhxm="";
+					}
 					//通过获取姓名判断是否登陆成功
 					if(!CommonUtils.isNull(xhxm)){
 						//判断是否保存密码

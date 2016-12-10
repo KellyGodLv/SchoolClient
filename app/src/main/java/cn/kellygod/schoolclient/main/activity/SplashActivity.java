@@ -11,6 +11,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
 
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.crashreport.CrashReport;
+
 import java.lang.ref.WeakReference;
 
 import cn.kellygod.schoolclient.R;
@@ -70,6 +73,8 @@ public class SplashActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+		//日志报告
+		CrashReport.initCrashReport(getApplicationContext(), "fae74f167f", false);
 		//使用native登陆VPN网络
 		NativeLoad.LoginVPN(mHandler);
 		//使用java层登陆VPN网络 账号，密码
