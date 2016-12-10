@@ -32,6 +32,8 @@ public class UpdateAppDao {
     public static final int UPDATE_APP_OK       =   0x000011;
     //检测到新版本
     public static final int UPDATE_APP_CHECKED  =   0x000012;
+    //更新接口网址
+    public static final String UPDATE_APP_URL   =   "http://vkingvip.com/update.xml";
     //版本检测接口
     public static void UpdateAppDao(final Context context,final Handler handler){
         new Thread(new Runnable() {
@@ -51,7 +53,6 @@ public class UpdateAppDao {
                     handler.sendMessage(msg);
                     return ;
                 }
-
                 msg.what=UPDATE_APP_OK;
                 handler.sendMessage(msg);
             }
@@ -59,19 +60,19 @@ public class UpdateAppDao {
     }
 
     private static UpdateAppBean getUpdateInfo()  {
-        Document document=null;
+        UpdateAppBean info=null;
         try {
-            document = Jsoup.connect("http://kellygod.cn/update.xml").get();
+            Document document = Jsoup.connect(UPDATE_APP_URL).get();
+            info =new UpdateAppBean();
+            Element version = document.getElementById("version");
+            Element url = document.getElementById("url");
+            LogUtils.d("UpdateAppDao", version.text()+"---"+url.text());
+            info.setVersion(version.text());
+            info.setUrl(url.text());
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        UpdateAppBean info =new UpdateAppBean();
-        Element version = document.getElementById("version");
-        Element url = document.getElementById("url");
-        LogUtils.d("UpdateAppDao", version.text()+"---"+url.text());
-        info.setVersion(version.text());
-        info.setUrl(url.text());
-
         return info;
     }
 }

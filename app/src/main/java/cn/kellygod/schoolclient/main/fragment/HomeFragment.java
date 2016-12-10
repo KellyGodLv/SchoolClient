@@ -37,7 +37,6 @@ import cn.kellygod.schoolclient.util.LogUtils;
 public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyListener {
 
 	public static final String TAG = "HomeFragment";
-	private final String SSL_VPN_HOST="https://202.101.111.206/";
 	private final String HOME_PAGE="www.ptu.edu.cn";
 	private Activity mActivity;
 	private TextView mTitleTv;

@@ -43,9 +43,7 @@ public class ExamAddrActivity extends BaseActivity implements View.OnClickListen
                     examAddrActivity.list= ExaminationRoomDao.queryExaminationTime(html);
                     examAddrActivity.adapter.setData(examAddrActivity.list);
                     examAddrActivity.mListView.setAdapter(examAddrActivity.adapter);
-
                     examAddrActivity.adapter.notifyDataSetChanged();
-                    ToastUtil.show(examAddrActivity.getApplicationContext(), "考场信息已更新");
                     break;
                 case CommonName.STATUS_GET_RESOURCE_ERROR:
                     ToastUtil.show(examAddrActivity.getApplicationContext(),"获取信息失败");
@@ -71,6 +69,7 @@ public class ExamAddrActivity extends BaseActivity implements View.OnClickListen
                         + StudentInfo.getInstance().getStudentCode() + "&" + EducationCode.EXAMINATION_QUERY,
                 CommonName.EDUCATION_SYSTEM + "xs_main.aspx?xh="
                         + StudentInfo.getInstance().getStudentCode(), studentExamTimeHandler);
+        ToastUtil.show(this, "考场信息更新中");
         initViews();
         initEvents();
     }

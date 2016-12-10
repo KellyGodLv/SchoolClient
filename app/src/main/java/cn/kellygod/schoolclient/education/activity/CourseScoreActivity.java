@@ -47,7 +47,6 @@ public class CourseScoreActivity extends BaseActivity implements View.OnClickLis
                     courseScoreActivity.mListView.setAdapter(courseScoreActivity.adapter);
 
                     courseScoreActivity.adapter.notifyDataSetChanged();
-                    ToastUtil.show(courseScoreActivity.getApplicationContext(), "期末成绩已更新");
                     break;
                 case CommonName.STATUS_GET_RESOURCE_ERROR:
                     ToastUtil.show(courseScoreActivity.getApplicationContext(), "网络请求异常");
@@ -74,6 +73,7 @@ public class CourseScoreActivity extends BaseActivity implements View.OnClickLis
                         + StudentInfo.getInstance().getStudentCode() + "&" + EducationCode.SCORE_QUERY,
                 EducationCode.RECORD_SCORE_QUERY_BUTTON,
                 mStudentScoreHandler);
+        ToastUtil.show(this, "期末成绩更新中");
         initViews();
         initEvents();
 

@@ -48,7 +48,6 @@ public class TimeTableActivity extends BaseActivity implements View.OnClickListe
                     timeTableActivity.mListView.setAdapter(timeTableActivity.adapter);
 
                     timeTableActivity.adapter.notifyDataSetChanged();
-                    ToastUtil.show(timeTableActivity.getApplicationContext(),"课程已经更新");
                     break;
                 case CommonName.STATUS_GET_RESOURCE_ERROR:
                     ToastUtil.show(timeTableActivity.getApplicationContext(),"获取信息失败");
@@ -76,6 +75,7 @@ public class TimeTableActivity extends BaseActivity implements View.OnClickListe
                         CommonName.EDUCATION_SYSTEM + EducationCode.STEUDENT_MAIN + "?xh="
                                 + StudentInfo.getInstance().getStudentCode(),
                         studentTimeTableHandler);
+        ToastUtil.show(this, "课程表更新中");
         initViews();
         initEvents();
     }
@@ -86,9 +86,6 @@ public class TimeTableActivity extends BaseActivity implements View.OnClickListe
         mTitleTv.setText(R.string.student_course_table);
         mBackImg = (ImageView) findViewById(R.id.back_img);
         mBackImg.setVisibility(View.VISIBLE);
-        //mOkImg = (ImageView) findViewById(R.id.right_img);
-        //mOkImg.setImageResource(R.drawable.check_mark_btn);
-       // mOkImg.setVisibility(View.VISIBLE);
 
         mListView=(ListView)findViewById(R.id.education_table_listView);
         adapter = new EducationTimeTableAdapter(getApplication().getBaseContext());
