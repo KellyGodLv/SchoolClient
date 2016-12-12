@@ -307,6 +307,7 @@ public class MainActivity extends FragmentActivity implements
 		if (null != mSettingFragment) {
 			transaction.hide(mSettingFragment);
 		}
+
 	}
 
 	@Override

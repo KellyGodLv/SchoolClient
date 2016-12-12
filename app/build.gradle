@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "cn.kellygod.schoolclient"
-        minSdkVersion 21
+        minSdkVersion 14
         targetSdkVersion 23
         ndk{
             moduleName "secretkey"

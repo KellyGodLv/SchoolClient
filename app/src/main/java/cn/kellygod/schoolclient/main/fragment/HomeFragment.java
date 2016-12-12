@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -102,7 +103,9 @@ public class HomeFragment extends BaseFragment implements OnClickListener,OnKeyL
 	
 	 private void initWebView(String param_cookie){
 		 //
-		 webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+		 if (Build.VERSION.SDK_INT >= 21) {
+			 webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW );
+		 }
 		 webView.getSettings().setAllowFileAccess(true);
 		 //启用java script
 		 webView.getSettings().setJavaScriptEnabled(true);
