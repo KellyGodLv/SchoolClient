@@ -34,7 +34,7 @@ public class UpdateAppDao {
     //检测到新版本
     public static final int UPDATE_APP_CHECKED  =   0x000012;
     //更新接口网址
-    public static final String UPDATE_APP_URL   =   "http://vkingvip.com/update.xml";
+    public static final String UPDATE_APP_URL   =   "http://vkingvip.com/update1.xml";
     //版本检测接口
     public static void UpdateAppDao(final Context context,final Handler handler){
         new Thread(new Runnable() {

@@ -28,10 +28,15 @@ public class TimeTableDao {
             table6 = doc.getElementById("Table6");
         }catch (IllegalArgumentException e){
             e.printStackTrace();
+            return null;
         }catch (NullPointerException e){
             e.printStackTrace();
+            return null;
         }
-        String table[][]=transform(getTable(table6));
+        String tmp[][]=getTable(table6);
+        if(tmp==null)
+            return null;
+        String table[][]=transform(tmp);
         for(int i=0;i<11;i++) {
             Map<String,TimeTableBean> map=new HashMap<>();
             for (int j = 0; j < 7; j++) {
@@ -64,7 +69,7 @@ public class TimeTableDao {
                 {"a","a","a","a","a","a","a","a","a"}
         };
         if(table==null)
-            throw new NullPointerException();
+            return null;
         Elements trs = table.select("tr");
         for(int i =0;i<trs.size();i++){
             Elements tds = trs.get(i).select("td");

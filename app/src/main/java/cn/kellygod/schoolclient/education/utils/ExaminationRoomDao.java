@@ -26,7 +26,7 @@ public class ExaminationRoomDao {
         }
         //因为单元格不需要合并，所以直接遍历所有单元格就能得到所有的考场信息
         if(table==null)
-            throw new NullPointerException();
+            return null;
         //得到所有行
         Elements trs=table.select("tr");
         //第一行省去

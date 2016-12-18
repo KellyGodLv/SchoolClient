@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog.Builder;
 
 import cn.kellygod.schoolclient.connection.UpdateAppBean;
+import cn.kellygod.schoolclient.util.CommonUtils;
 
 /**
  * @author kellygod 2016/11/27.
@@ -22,11 +23,13 @@ public class UpdateDialog {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //下载更新
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse(info.getUrl());
-                intent.setData(content_url);
-                context.startActivity(intent);
+                if(!CommonUtils.isNull(info.getUrl())) {
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.VIEW");
+                    Uri content_url = Uri.parse(info.getUrl());
+                    intent.setData(content_url);
+                    context.startActivity(intent);
+                }
             }
         });
         mBuilder.create().show();
